@@ -1,0 +1,39 @@
+group 'testowy1'
+version '1.0-SNAPSHOT'
+
+buildscript {
+
+    ext{
+        spring_plugin_version = '1.5.2.RELEASE'
+    }
+
+    repositories{
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:$spring_plugin_version")
+    }
+
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'com.h2database:h2'
+
+    compileOnly "org.projectlombok:lombok:1.16.16"
+    compile "org.codehaus.jackson:jackson-mapper-asl:1.9.13"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
