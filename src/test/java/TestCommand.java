@@ -14,7 +14,7 @@ public class TestCommand {
         Command commandUpdate = new UpdateCommand(" update command");
         processor.process(commandUpdate);
 
-        processor.process("{\"name\":\"TestowaCommand\"}");
+        processor.process("{\"type\":\"TestowaCommand\",\"name\":\"TestowaCommand\"}");
 
     }
 }
