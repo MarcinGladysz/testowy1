@@ -3,6 +3,7 @@ package testowy1.kafka;
 import java.util.HashMap;
 import java.util.Map;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +16,7 @@ import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
 
+/*
 @Configuration
 @EnableKafka
 public class ReceiverConfig {
@@ -59,3 +61,4 @@ public class ReceiverConfig {
         return new Receiver();
     }
 }
+*/

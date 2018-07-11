@@ -2,12 +2,16 @@ package testowy1.cqrs;
 
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Service;
+import testowy1.BeanUtil;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 
+@Service
 public class CommandProcessor {
-
 
     public void process(String jsonString){
 
@@ -25,18 +29,12 @@ public class CommandProcessor {
     }
 
     public void process(Command command) {
-        try {
-        CommandHandlerAssigment annot = command.getClass().getAnnotation(CommandHandlerAssigment.class);
-            CommandHandler handler = annot.handlerClass().getDeclaredConstructor().newInstance();
+            CommandHandlerAssigment annot = command.getClass().getAnnotation(CommandHandlerAssigment.class);
+
+            CommandHandler handler =
+                BeanUtil.getBean(annot.handlerClass());
+
             handler.handle(command);
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
+
     }
 }

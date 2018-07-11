@@ -2,10 +2,12 @@ package testowy1.kafka;
 
 import java.util.concurrent.CountDownLatch;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 
+/*
 public class Receiver {
 
     private static final Logger LOGGER =
@@ -24,3 +26,4 @@ public class Receiver {
         latch.countDown();
     }
 }
+*/
