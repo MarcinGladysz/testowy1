@@ -23,6 +23,11 @@ public class Transaction {
     @Column
     private String SourceCategory;
 
+    @ElementCollection
+    @CollectionTable(name="multiCategory", joinColumns = @JoinColumn(name="CategoryId"))
+    @Column(name = "otherCategory")
+    private List<TransactionCategoryTags> otherCategories;
+
     @Override
     public String toString() {
         return "Transaction{" +
@@ -30,6 +35,7 @@ public class Transaction {
             ", mainCategoryTag=" + mainCategoryTag +
             ", amount=" + amount +
             ", SourceCategory='" + SourceCategory + '\'' +
+            ", otherCategories=" + otherCategories +
             '}';
     }
 }
