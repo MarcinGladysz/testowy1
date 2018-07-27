@@ -22,6 +22,7 @@ public class ControllerTest {
         Command commandUpdate = new UpdateCommand(" update command");
         processor.process(commandUpdate);
 
+        processor.process("{\"type\":\"TestowaCommand\",\"name\":\"TestowaCommand\"}");
         return ResponseEntity.ok(" poszlo");
     }
 
