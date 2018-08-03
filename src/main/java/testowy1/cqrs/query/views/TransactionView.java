@@ -15,4 +15,5 @@ public class TransactionView {
     private BigDecimal amount;
     private String SourceCategory;
     private List<TransactionCategoryTags> otherCategories;
+    private String date;
 }

@@ -1,13 +1,16 @@
 package testowy1.cqrs.query;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import testowy1.cqrs.query.views.TransactionView;
 import testowy1.model.Transaction;
 import testowy1.model.TransactionRepository;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TransactionDataProvider {
 
     @Autowired
@@ -29,6 +32,7 @@ public class TransactionDataProvider {
             .mainCategoryTag(model.getMainCategoryTag())
             .SourceCategory(model.getSourceCategory())
             .otherCategories(model.getOtherCategories())
+            .date(model.getDate().format(DateTimeFormatter.RFC_1123_DATE_TIME))
             .build();
     }
 
