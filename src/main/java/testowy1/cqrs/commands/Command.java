@@ -1,4 +1,4 @@
-package testowy1.cqrs;
+package testowy1.cqrs.commands;
 
 
 import org.codehaus.jackson.annotate.JsonSubTypes;

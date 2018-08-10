@@ -1,4 +1,4 @@
-package testowy1.cqrs;
+package testowy1.cqrs.commands;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,7 +7,6 @@ import testowy1.model.TransactionCategoryTags;
 import testowy1.model.TransactionRepository;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

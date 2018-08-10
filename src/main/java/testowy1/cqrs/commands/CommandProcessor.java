@@ -1,15 +1,12 @@
-package testowy1.cqrs;
+package testowy1.cqrs.commands;
 
 
 import org.codehaus.jackson.map.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import testowy1.BeanUtil;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 
 @Service
 @Transactional
