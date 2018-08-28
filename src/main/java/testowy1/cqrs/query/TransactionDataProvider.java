@@ -26,6 +26,8 @@ public class TransactionDataProvider {
     }
 
     private TransactionView mapModelToView(Transaction model) {
+        if(model == null)
+            return null;
         return TransactionView.builder()
             .amount(model.getAmount())
             .id(model.getId())

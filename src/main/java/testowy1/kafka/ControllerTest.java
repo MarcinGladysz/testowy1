@@ -47,7 +47,7 @@ public class ControllerTest {
     }
 
     @RequestMapping(value ="/transaction/{id}", method =RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TransactionView> getTransaction(@RequestParam Long id) throws ResourceNotFoundException{
+    public ResponseEntity<TransactionView> getTransaction(@PathVariable Long id) throws ResourceNotFoundException{
 
         TransactionView toReturn = queryProcessor.getTransactionById(id);
         if(toReturn == null){
