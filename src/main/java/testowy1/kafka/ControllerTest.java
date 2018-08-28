@@ -33,6 +33,7 @@ public class ControllerTest {
         Command commandUpdate = new UpdateCommand();
         commandUpdate.setName(" update command");
         ((UpdateCommand) commandUpdate).setMainCategoryTag(TransactionCategoryTags.JEDZENIE);
+        ((UpdateCommand) commandUpdate).setTransactionID(1);
         processor.process(commandUpdate);
 
         processor.process("{\"type\":\"TestowaCommand\",\"name\":\"TestowaCommand\"}");

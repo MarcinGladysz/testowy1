@@ -34,7 +34,7 @@ public class TransactionDataProvider {
             .mainCategoryTag(model.getMainCategoryTag())
             .SourceCategory(model.getSourceCategory())
             .otherCategories(model.getOtherCategories())
-            .date(model.getDate().format(DateTimeFormatter.RFC_1123_DATE_TIME))
+            .date(model.getDate().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME))
             .build();
     }
 

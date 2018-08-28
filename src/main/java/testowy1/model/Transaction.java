@@ -33,6 +33,13 @@ public class Transaction {
     @Column
     LocalDateTime date;
 
+    @PrePersist
+    void preInsert(){
+        if(this.date == null){
+            this.date = LocalDateTime.now();
+        }
+    }
+
     @Override
     public String toString() {
         return "Transaction{" +

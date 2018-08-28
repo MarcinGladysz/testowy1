@@ -20,4 +20,12 @@ public class ExceptionHandlerControllerAdvice {
 
         return "test wyjatku poszedl ok";
     }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+    public @ResponseBody String handleOtherException(final Exception ex){
+        ex.printStackTrace();
+
+        return "i w p*** wyladowal i caly misterny plan tez w p*** \\/n"+ ex.getMessage();
+    }
 }
