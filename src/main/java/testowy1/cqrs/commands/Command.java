@@ -14,6 +14,7 @@ import lombok.Getter;
         property = "type")
 @JsonSubTypes({
         @Type(value = UpdateCommand.class, name = "UpdateCommand"),
+        @Type(value = CreateTransactionCommand.class, name = "CreateTransactionCommand"),
         @Type(value = TestowaCommand.class, name = "TestowaCommand")
 })
 @AllArgsConstructor

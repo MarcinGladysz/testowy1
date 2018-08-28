@@ -18,4 +18,8 @@ public class QueryProcessor {
        return transactionDataProvider.getAllTransaction();
     }
 
+    public TransactionView getTransactionById(Long id){
+        return transactionDataProvider.getTransaction(id);
+    }
+
 }

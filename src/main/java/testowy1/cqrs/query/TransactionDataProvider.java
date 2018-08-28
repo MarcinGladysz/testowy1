@@ -36,4 +36,8 @@ public class TransactionDataProvider {
             .build();
     }
 
+    public TransactionView getTransaction(Long id){
+        return mapModelToView(repository.findOne(id));
+    }
+
 }

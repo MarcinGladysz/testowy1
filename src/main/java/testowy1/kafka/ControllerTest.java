@@ -4,16 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import testowy1.cqrs.commands.Command;
 import testowy1.cqrs.commands.CommandProcessor;
 import testowy1.cqrs.commands.TestowaCommand;
 import testowy1.cqrs.commands.UpdateCommand;
 import testowy1.cqrs.query.QueryProcessor;
 import testowy1.cqrs.query.views.TransactionView;
+import testowy1.exceptions.ResourceNotFoundException;
+import testowy1.model.TransactionCategoryTags;
 
 import java.util.List;
 
@@ -33,6 +32,7 @@ public class ControllerTest {
         processor.process(command);
         Command commandUpdate = new UpdateCommand();
         commandUpdate.setName(" update command");
+        ((UpdateCommand) commandUpdate).setMainCategoryTag(TransactionCategoryTags.JEDZENIE);
         processor.process(commandUpdate);
 
         processor.process("{\"type\":\"TestowaCommand\",\"name\":\"TestowaCommand\"}");
@@ -44,6 +44,17 @@ public class ControllerTest {
         List<TransactionView> toReturn;
         toReturn = queryProcessor.testTransactionProcess();
         return new ResponseEntity<>(toReturn, HttpStatus.OK);
+    }
+
+    @RequestMapping(value ="/transaction/{id}", method =RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TransactionView> getTransaction(@RequestParam Long id) throws ResourceNotFoundException{
+
+        TransactionView toReturn = queryProcessor.getTransactionById(id);
+        if(toReturn == null){
+            throw new ResourceNotFoundException();
+        }
+        return new ResponseEntity<>(toReturn, HttpStatus.OK);
+
     }
 
 
