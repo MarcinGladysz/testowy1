@@ -21,14 +21,14 @@ public class TestowyHandler extends CommandHandler<TestowaCommand> {
     public void handle(TestowaCommand command) {
         System.out.println("JEJEJE" + command.getName());
 
-        Transaction testTraansaaction = new Transaction();
-        testTraansaaction.setMainCategoryTag(TransactionCategoryTags.EDUKACJA);
+        Transaction testTransaction = new Transaction();
+        testTransaction.setMainCategoryTag(TransactionCategoryTags.EDUKACJA);
         List<TransactionCategoryTags> otherCategory = new ArrayList<>();
         otherCategory.add(TransactionCategoryTags.PRACA);
         otherCategory.add(TransactionCategoryTags.ROZRYWKA);
-        testTraansaaction.setOtherCategories(otherCategory);
-        testTraansaaction.setAmount(new BigDecimal("10"));
-        testTraansaaction.setDate(LocalDateTime.now());
-        repository.save(testTraansaaction);
+        testTransaction.setOtherCategories(otherCategory);
+        testTransaction.setAmount(new BigDecimal("10"));
+        testTransaction.setDate(LocalDateTime.now());
+        repository.save(testTransaction);
     }
 }
