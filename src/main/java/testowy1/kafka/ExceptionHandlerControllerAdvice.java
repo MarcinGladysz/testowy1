@@ -26,6 +26,6 @@ public class ExceptionHandlerControllerAdvice {
     public @ResponseBody String handleOtherException(final Exception ex){
         ex.printStackTrace();
 
-        return "i w p*** wyladowal i caly misterny plan tez w p*** \\/n"+ ex.getMessage();
+        return "i w p**** wyladowal i caly misterny plan tez w p**** \\/n"+ ex.getMessage();
     }
 }

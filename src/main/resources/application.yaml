@@ -1,4 +1,11 @@
+spring:
+   security:
+    user:
+      name:user
+    basic:
+     enabled:true
 kafka:
   bootstrap-servers: localhost:9092
   topic:
     helloworld: helloworld.t
+
