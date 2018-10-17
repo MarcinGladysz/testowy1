@@ -1,13 +1,13 @@
-package testowy1.cqrs;
+package testowy1.cqrs.commands;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import testowy1.model.Transaction;
 import testowy1.model.TransactionCategoryTags;
 import testowy1.model.TransactionRepository;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,12 +21,14 @@ public class TestowyHandler extends CommandHandler<TestowaCommand> {
     public void handle(TestowaCommand command) {
         System.out.println("JEJEJE" + command.getName());
 
-        Transaction testTraansaaction = new Transaction();
-        testTraansaaction.setMainCategoryTag(TransactionCategoryTags.EDUKACJA);
+        Transaction testTransaction = new Transaction();
+        testTransaction.setMainCategoryTag(TransactionCategoryTags.EDUKACJA);
         List<TransactionCategoryTags> otherCategory = new ArrayList<>();
         otherCategory.add(TransactionCategoryTags.PRACA);
         otherCategory.add(TransactionCategoryTags.ROZRYWKA);
-        testTraansaaction.setOtherCategories(otherCategory);
-        repository.save(testTraansaaction);
+        testTransaction.setOtherCategories(otherCategory);
+        testTransaction.setAmount(new BigDecimal("10"));
+        testTransaction.setDate(LocalDateTime.now());
+        repository.save(testTransaction);
     }
 }

@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -28,12 +30,23 @@ public class Transaction {
     @Column(name = "otherCategory")
     private List<TransactionCategoryTags> otherCategories;
 
+    @Column
+    LocalDateTime date;
+
+    @PrePersist
+    void preInsert(){
+        if(this.date == null){
+            this.date = LocalDateTime.now();
+        }
+    }
+
     @Override
     public String toString() {
         return "Transaction{" +
             "id=" + id +
             ", mainCategoryTag=" + mainCategoryTag +
             ", amount=" + amount +
+            ", date=" + date +
             ", SourceCategory='" + SourceCategory + '\'' +
             ", otherCategories=" + otherCategories +
             '}';
