@@ -22,48 +22,48 @@ public class BrainFkProcessor {
 
     }
     public void process(String input){
-        int i = 0;
-        while(i<input.length()){
-            char c = input.charAt(i);
-            System.out.println("kontorla c = "+c);
+        int inputProcessPointer = 0;
+        while(inputProcessPointer<input.length()){
+            char currentProcessedSign = input.charAt(inputProcessPointer);
+            System.out.println("kontorla c = "+currentProcessedSign);
 
 
-            if(c == StartLoop){
+            if(currentProcessedSign == StartLoop){
                 int levelOfLoop= 1;
-                int j = i+1;
-                char inerloopChar;
-                while(j!= EndLoop && levelOfLoop != 0 && j< input.length()){
-                    inerloopChar = input.charAt(j);
-                    if(inerloopChar == StartLoop){
+                int inLoopPointer = inputProcessPointer+1;
+                char interloopChar;
+                while(inLoopPointer!= EndLoop && levelOfLoop != 0 && inLoopPointer< input.length()){
+                    interloopChar = input.charAt(inLoopPointer);
+                    if(interloopChar == StartLoop){
                         levelOfLoop++;
                     }
-                    if(inerloopChar == EndLoop){
+                    if(interloopChar == EndLoop){
                         levelOfLoop--;
                     }
-                    j++;
+                    inLoopPointer++;
                 }
-                loop(input.substring(i+1,j-1));
-                i=j-1;
+                loop(input.substring(inputProcessPointer+1,inLoopPointer-1));
+                inputProcessPointer=inLoopPointer-1;
 
-            }else if(c == print){
+            }else if(currentProcessedSign == print){
                 System.out.println(tab[pointer]);
             }
-            else if(c == increment){
+            else if(currentProcessedSign == increment){
                 tab[pointer]++;
             }
-            else if(c == decrement){
+            else if(currentProcessedSign == decrement){
                 tab[pointer]--;
             }
-            else if(c == moveNext){
+            else if(currentProcessedSign == moveNext){
                 pointer++;
             }
-            else if(c == moveBack){
+            else if(currentProcessedSign == moveBack){
                 pointer--;
             }
 
 
 
-            i++;
+            inputProcessPointer++;
         }
 
 
@@ -72,9 +72,9 @@ public class BrainFkProcessor {
 
 
     private void loop(String inputInLoop){
-        int j = pointer;
-        while(tab[j]!= 0){
-            System.out.println("kontorla w pentli srodka = " + inputInLoop+ "  "+ tab[j]);
+        int loopConditionPointer = pointer;
+        while(tab[loopConditionPointer]!= 0){
+            System.out.println("kontorla w pentli srodka = " + inputInLoop+ "  "+ tab[loopConditionPointer]);
             process(inputInLoop);
         }
     }
