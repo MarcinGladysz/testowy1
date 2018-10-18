@@ -78,4 +78,11 @@ public class BrainFkProcessor {
             process(inputInLoop);
         }
     }
+
+    public void reset() {
+        for(int i=0; i< tab.length;i++){
+            tab[i] = 0;
+        }
+        this.pointer=0;
+    }
 }
