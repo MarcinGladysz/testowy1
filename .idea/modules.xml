@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apigateway.iml" filepath="$PROJECT_DIR$/.idea/modules/apigateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apigateway_main.iml" filepath="$PROJECT_DIR$/.idea/modules/apigateway_main.iml" group="apigateway" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/apigateway_test.iml" filepath="$PROJECT_DIR$/.idea/modules/apigateway_test.iml" group="apigateway" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testowy1.iml" filepath="$PROJECT_DIR$/.idea/modules/testowy1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testowy1_main.iml" filepath="$PROJECT_DIR$/.idea/modules/testowy1_main.iml" group="testowy1" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testowy1_test.iml" filepath="$PROJECT_DIR$/.idea/modules/testowy1_test.iml" group="testowy1" />
+    </modules>
+  </component>
+</project>
